@@ -1,14 +1,14 @@
 {% set name = "libcuobjclient" %}
-{% set version = "1.3.1.55" %}
+{% set version = "1.4.0.107" %}
 {% set lib_version = version.split(".")[:-1] | join(".") %}
-{% set cuda_version = "13.4" %}
+{% set cuda_version = "13.5" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-sbsa" %}  # [aarch64]
 {% set target_name = "x86_64-linux" %}  # [linux64]
 {% set target_name = "sbsa-linux" %}  # [aarch64]
 {% set extension = "tar.xz" %}  # [not win]
-{% set sha256 = "0357af73020977509293a0e19d5ac0b777c834180c7eabe0320136a6c398cc8c" %}  # [linux64]
-{% set sha256 = "e5645f18c7d7ee065e2d6dbf87dc2c7adef976c8f79c582afd5a8554c1f495e3" %}  # [aarch64]
+{% set sha256 = "fdeb16b87f443e1bdde9cb22ffb5d86b0bc20f98457a246bce9a2b689e37d714" %}  # [linux64]
+{% set sha256 = "4b777583d3c80c00caa3fb97f2af76dc1e74b877255760e92f61c31686f8ca98" %}  # [aarch64]
 
 package:
   name: {{ name|lower }}-split
@@ -50,7 +50,7 @@ outputs:
         - libnuma
       run:
         - {{ pin_compatible("cuda-version", max_pin="x.x") }}
-        - {{ pin_compatible("libcufile", max_pin="x.x") }}
+        - libcufile
         - {{ pin_compatible("libnuma", max_pin="x") }}
     test:
       requires:
