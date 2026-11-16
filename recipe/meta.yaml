@@ -19,7 +19,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not (linux64 or aarch64)]
 
 requirements:
@@ -50,7 +50,7 @@ outputs:
         - libnuma
       run:
         - {{ pin_compatible("cuda-version", max_pin="x.x") }}
-        - libcufile
+        - {{ pin_compatible("libcufile", max_pin="x.x") }}
         - {{ pin_compatible("libnuma", max_pin="x") }}
     test:
       requires:
